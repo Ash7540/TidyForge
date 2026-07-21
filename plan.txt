@@ -1,0 +1,508 @@
+I like this approach much better. Instead of spending weeks on planning, we'll **plan before we start** and then dedicate almost the entire 60 days to building the library.
+
+The goal is not just to finish a library, but to build one that looks like a professional open-source project with clean architecture, strong testing, and excellent documentation.
+
+---
+
+# Project Goal
+
+**Project Name:** *(Temporary until we finalise the name)*
+
+**Mission:**
+Create a modular, extensible, high-performance Python library that simplifies data cleaning for Pandas DataFrames through a clean, chainable API without using AI or external services.
+
+**Duration:** 60 Days
+
+* **Days 1-55:** Development
+* **Days 56-60:** Testing, optimisation, documentation, and release
+
+---
+
+# Phase 1: Project Foundation (Days 1-5)
+
+### Day 1
+
+* Create project structure
+* Configure Python packaging
+* Set up virtual environment
+* Configure linting, formatting and type checking
+* Configure Git repository
+* Configure CI pipeline
+* Create base modules
+
+**Milestone:** Project ready for development.
+
+---
+
+### Day 2
+
+* Design the public API
+* Create the Cleaner class
+* Implement method chaining architecture
+* Create exception hierarchy
+* Create configuration system
+
+**Milestone:** Core architecture completed.
+
+---
+
+### Day 3
+
+* Build DataFrame validation layer
+* Data loading utilities
+* Input validation
+* Output validation
+* Error handling framework
+
+---
+
+### Day 4
+
+* Create utility functions
+* Logging system
+* Helper classes
+* Internal decorators
+* Shared constants
+
+---
+
+### Day 5
+
+* Build plugin-ready architecture
+* Configuration loading
+* Base abstract classes
+* Code cleanup
+
+---
+
+# Phase 2: Missing Data Module (Days 6-10)
+
+### Day 6
+
+* Missing value detection
+* Missing value statistics
+* Custom missing markers
+
+---
+
+### Day 7
+
+* Remove missing rows
+* Remove missing columns
+* Threshold-based removal
+
+---
+
+### Day 8
+
+* Mean
+* Median
+* Mode
+* Constant value filling
+
+---
+
+### Day 9
+
+* Forward fill
+* Backward fill
+* Group-based filling
+
+---
+
+### Day 10
+
+* Missing value report
+* Summary methods
+* Module optimisation
+
+---
+
+# Phase 3: Duplicate Module (Days 11-13)
+
+### Day 11
+
+* Duplicate row detection
+* Duplicate row removal
+
+---
+
+### Day 12
+
+* Duplicate column detection
+* Duplicate index detection
+
+---
+
+### Day 13
+
+* Duplicate reporting
+* Duplicate statistics
+
+---
+
+# Phase 4: Data Type Module (Days 14-17)
+
+### Day 14
+
+* Automatic type detection
+* Numeric detection
+* Boolean detection
+
+---
+
+### Day 15
+
+* Date detection
+* Category detection
+* Text detection
+
+---
+
+### Day 16
+
+* Safe type conversion
+* Conversion warnings
+
+---
+
+### Day 17
+
+* Type summary report
+* Optimisation
+
+---
+
+# Phase 5: Text Cleaning Module (Days 18-24)
+
+### Day 18
+
+* Whitespace cleaning
+* Trim operations
+
+---
+
+### Day 19
+
+* Lowercase
+* Uppercase
+* Title case
+
+---
+
+### Day 20
+
+* Remove punctuation
+* Remove special characters
+
+---
+
+### Day 21
+
+* Remove HTML
+* Remove URLs
+
+---
+
+### Day 22
+
+* Remove emojis
+* Unicode normalisation
+
+---
+
+### Day 23
+
+* Replace text
+* Regex cleaning
+
+---
+
+### Day 24
+
+* Text cleaning report
+
+---
+
+# Phase 6: Date and Time Module (Days 25-28)
+
+### Day 25
+
+* Date parsing
+
+---
+
+### Day 26
+
+* Date formatting
+
+---
+
+### Day 27
+
+* Invalid date detection
+
+---
+
+### Day 28
+
+* Timezone handling
+* Summary methods
+
+---
+
+# Phase 7: Numeric Cleaning Module (Days 29-33)
+
+### Day 29
+
+* Currency cleaning
+
+---
+
+### Day 30
+
+* Percentage cleaning
+
+---
+
+### Day 31
+
+* Numeric formatting
+
+---
+
+### Day 32
+
+* Invalid numeric detection
+
+---
+
+### Day 33
+
+* Numeric report
+
+---
+
+# Phase 8: Contact Data Module (Days 34-37)
+
+### Day 34
+
+* Email validation
+
+---
+
+### Day 35
+
+* Phone number cleaning
+
+---
+
+### Day 36
+
+* URL validation
+
+---
+
+### Day 37
+
+* IP address validation
+* Summary methods
+
+---
+
+# Phase 9: Outlier Module (Days 38-41)
+
+### Day 38
+
+* IQR detection
+
+---
+
+### Day 39
+
+* Z-score detection
+
+---
+
+### Day 40
+
+* Outlier removal
+* Outlier marking
+
+---
+
+### Day 41
+
+* Outlier reporting
+
+---
+
+# Phase 10: Data Validation Module (Days 42-45)
+
+### Day 42
+
+* Invalid values
+* Constant columns
+
+---
+
+### Day 43
+
+* Mixed data types
+* Empty columns
+
+---
+
+### Day 44
+
+* Range validation
+* Constraint validation
+
+---
+
+### Day 45
+
+* Data quality scoring
+
+---
+
+# Phase 11: Reporting Module (Days 46-49)
+
+### Day 46
+
+* Cleaning summary
+
+---
+
+### Day 47
+
+* HTML report generation
+
+---
+
+### Day 48
+
+* JSON report generation
+
+---
+
+### Day 49
+
+* Export utilities
+
+---
+
+# Phase 12: Pipeline and CLI (Days 50-55)
+
+### Day 50
+
+* Cleaning pipeline builder
+
+---
+
+### Day 51
+
+* Save and load pipelines
+
+---
+
+### Day 52
+
+* Batch dataset cleaning
+
+---
+
+### Day 53
+
+* Command-line interface
+
+---
+
+### Day 54
+
+* Performance optimisation
+* Memory optimisation
+
+---
+
+### Day 55
+
+* Final feature freeze
+* API review
+* Internal refactoring
+
+---
+
+# Phase 13: Testing and Release (Days 56-60)
+
+### Day 56
+
+* Unit testing for all modules
+* Fix failing tests
+
+---
+
+### Day 57
+
+* Integration testing
+* Edge case testing
+* Large dataset testing
+
+---
+
+### Day 58
+
+* Performance benchmarking
+* Code coverage
+* Bug fixing
+
+---
+
+### Day 59
+
+* Complete documentation
+* API reference
+* User guide
+* Example notebooks
+* README improvements
+* Contribution guidelines
+
+---
+
+### Day 60
+
+* Final code review
+* Package build verification
+* Publish to PyPI
+* Create GitHub release
+* Tag **v1.0.0**
+* Prepare roadmap for **v1.1.0**
+
+---
+
+# Version 1.0 Deliverables
+
+By Day 60, the project should include:
+
+* Professional project structure
+* Chainable, intuitive API
+* Modular architecture
+* Missing value handling
+* Duplicate detection and removal
+* Data type detection and conversion
+* Text cleaning utilities
+* Date and time cleaning
+* Numeric and currency cleaning
+* Email, phone, URL, and IP validation
+* Outlier detection
+* Data validation and quality checks
+* HTML and JSON reporting
+* Configurable cleaning pipelines
+* Command-line interface
+* Comprehensive unit and integration tests
+* Complete documentation
+* CI/CD workflow
+* Published package on PyPI
+* Open-source GitHub repository ready for community contributions
+
+This roadmap gives you a structured progression from the core architecture to advanced features, ending with a polished, production-ready release rather than just a collection of utility functions.
