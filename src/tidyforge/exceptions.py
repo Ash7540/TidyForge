@@ -17,3 +17,9 @@ class ConfigurationError(TidyForgeError):
     """Raised when an invalid configuration is provided."""
 
     pass
+
+
+class CleaningError(TidyForgeError):
+    """Raised when a cleaning operation fails during execution."""
+
+    pass
