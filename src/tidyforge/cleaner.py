@@ -1,11 +1,14 @@
 """Main Cleaner class for chainable data cleaning operations."""
 
-from typing import Optional
+from pathlib import Path
+from typing import Any, Optional, Union
 
 import pandas as pd
 
 from tidyforge.config import CleanerConfig, get_global_config
 from tidyforge.exceptions import ValidationError
+from tidyforge.loaders import load_data
+from tidyforge.validation import validate_dataframe_non_empty, validate_no_duplicate_columns
 
 
 class Cleaner:
@@ -19,13 +22,82 @@ class Cleaner:
             config: Optional local CleanerConfig configuration.
 
         Raises:
-            ValidationError: If `df` is not a Pandas DataFrame.
+            ValidationError: If `df` is not a Pandas DataFrame, is empty,
+                             or contains duplicate column names.
         """
         if not isinstance(df, pd.DataFrame):
             raise ValidationError("Input must be a pandas DataFrame.")
+        validate_dataframe_non_empty(df)
+        validate_no_duplicate_columns(df)
 
         self._config = config if config is not None else get_global_config()
         self._df = df.copy() if self._config.copy else df
+
+    @classmethod
+    def from_csv(
+        cls,
+        filepath: Union[str, Path],
+        config: Optional[CleanerConfig] = None,
+        **kwargs: Any,
+    ) -> "Cleaner":
+        """Create a Cleaner instance from a CSV file.
+
+        Args:
+            filepath: Path to the CSV file.
+            config: Optional CleanerConfig configuration.
+            **kwargs: Arguments passed to pd.read_csv.
+
+        Returns:
+            A Cleaner instance containing the loaded DataFrame.
+        """
+        path = Path(filepath)
+        if path.suffix.lower() != ".csv":
+            raise ValidationError(f"File must be a CSV file. Got: {path.suffix}")
+        df = load_data(path, **kwargs)
+        return cls(df, config=config)
+
+    @classmethod
+    def from_json(
+        cls,
+        filepath: Union[str, Path],
+        config: Optional[CleanerConfig] = None,
+        **kwargs: Any,
+    ) -> "Cleaner":
+        """Create a Cleaner instance from a JSON file.
+
+        Args:
+            filepath: Path to the JSON file.
+            config: Optional CleanerConfig configuration.
+            **kwargs: Arguments passed to pd.read_json.
+
+        Returns:
+            A Cleaner instance containing the loaded DataFrame.
+        """
+        path = Path(filepath)
+        if path.suffix.lower() != ".json":
+            raise ValidationError(f"File must be a JSON file. Got: {path.suffix}")
+        df = load_data(path, **kwargs)
+        return cls(df, config=config)
+
+    @classmethod
+    def from_dict(
+        cls,
+        data: dict[Any, Any],
+        config: Optional[CleanerConfig] = None,
+        **kwargs: Any,
+    ) -> "Cleaner":
+        """Create a Cleaner instance from a dictionary.
+
+        Args:
+            data: A dictionary to construct the DataFrame.
+            config: Optional CleanerConfig configuration.
+            **kwargs: Arguments passed to pd.DataFrame.
+
+        Returns:
+            A Cleaner instance containing the loaded DataFrame.
+        """
+        df = load_data(data, **kwargs)
+        return cls(df, config=config)
 
     @property
     def config(self) -> CleanerConfig:
