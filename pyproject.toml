@@ -8,7 +8,7 @@ version = "0.1.0.dev0"
 description = "A modular, extensible, high-performance Python library for Pandas DataFrame cleaning with a clean, chainable API."
 readme = "README.md"
 authors = [
-    { name = "Ash" }
+    { name = "Ashwin Ashok Chavan" }
 ]
 license = { text = "MIT" }
 requires-python = ">=3.9"

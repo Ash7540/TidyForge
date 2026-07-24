@@ -8,6 +8,8 @@ import pandas as pd
 from tidyforge.config import CleanerConfig, get_global_config
 from tidyforge.exceptions import ValidationError
 from tidyforge.loaders import load_data
+from tidyforge.utils.decorators import track_operation
+from tidyforge.utils.logging import configure_logging
 from tidyforge.validation import validate_dataframe_non_empty, validate_no_duplicate_columns
 
 
@@ -32,6 +34,12 @@ class Cleaner:
 
         self._config = config if config is not None else get_global_config()
         self._df = df.copy() if self._config.copy else df
+
+        # Initialize operation execution log history
+        self.history: list[dict[str, Any]] = []
+
+        # Sync library logging levels with the configuration
+        configure_logging(self._config.verbosity, self._config.ignore_warnings)
 
     @classmethod
     def from_csv(
@@ -118,8 +126,11 @@ class Cleaner:
         Returns:
             A new Cleaner instance with a copied DataFrame.
         """
-        return Cleaner(self._df.copy(), config=self._config)
+        new_cleaner = Cleaner(self._df.copy(), config=self._config)
+        new_cleaner.history = list(self.history)
+        return new_cleaner
 
+    @track_operation
     def dummy_clean(self) -> "Cleaner":
         """A placeholder cleaning method to demonstrate the chainable API.
 
